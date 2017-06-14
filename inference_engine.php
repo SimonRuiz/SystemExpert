@@ -1,36 +1,87 @@
 <?php
-//faire un fichier xml
-if(!empty($_POST)){
-    $nb_side = $_POST['nb_side'];
 
+include_once 'connexion.php';
+
+if(!empty($_POST)){
+
+    $nb_side = $_POST['nb_side'];
+    $forme = "";
+    $conditions = array();
+    if($nb_side == 1){
+        $forme = 'cer';
+    }
+    if($nb_side == 2){
+        $forme = 'lin';
+    }
     if($nb_side == 3) {
-        //Test les boutons radio t_cd
-        if(isset($_POST['t_cd']) == true){
+        $forme = 'tri';
+        $t_cd = "";
+        $t_angD = "";
+
+        if (isset($_POST['t_cd']) == true) {
             $t_cd = $_POST['t_cd'];
         }
-        if(isset($_POST['angD']) == true){
-            $angD = $_POST['angD'];
+        if (isset($_POST['t_angD']) == true) {
+            $t_angD = $_POST['t_angD'];
         }
 
-        if($angD == 'angD'){
-            if($t_cd == 'iso'){
-                echo "triangle rectangle isocèle";
-            }
-            else if ($t_cd == 'qq'){
-                echo "triangle rectangle";
-            }
-            else{
-                echo "il n'existe aucun triangle de ce type";
-            }
+        if($t_cd != ""){
+            $conditions[] = $t_cd;
         }
-        else if($t_cd == 'iso') {
-            echo "triangle isocèle";
-        }
-        else if($t_cd == 'qq'){
-            echo "triangle quelconque";
-        }
-        else if($t_cd == 'equ'){
-            echo "triangle équilatérale";
+        if($t_angD != ""){
+            $conditions[] = $t_angD;
         }
     }
+    if($nb_side == 4){
+        $forme = 'qua';
+        $q_para = "";
+        $q_angD = "";
+        $q_sameLenght = "";
+        $q_para_y = "";
+        if(isset($_POST['q_cdPara_Y']) == true){
+            $q_para_y = $_POST['q_cdPara_Y'];
+        }
+        if(isset($_POST['q_cdPara']) == true){
+            $q_para = $_POST['q_cdPara'];
+        }
+        if(isset($_POST['q_angD']) == true){
+            $q_angD = $_POST['q_angD'];
+        }
+        if(isset($_POST['q_sameLenght']) == true){
+            $q_sameLenght = $_POST['q_sameLenght'];
+        }
+
+        if($q_para != ""){
+            $conditions[] = $q_para;
+        }
+        if($q_sameLenght != ""){
+            $conditions[] = $q_sameLenght;
+        }
+        if($q_angD != ""){
+            $conditions[] = $q_angD;
+        }
+    }
+
+    $rep = KnowledgeBase::checkKnowledgeBase($nb_side, $conditions);
+
+    if($rep != ''){
+        echo $rep;
+    }
+    else {
+        include_once('rule-based.php');
+    }
+    /*if($rep->fetch() != false){
+        $data = $rep->fetch();
+        echo $data['reponse'];
+        //var_dump($rep->fetch());
+        //var_dump($rep->fetch(PDO::FETCH_LAZY));
+        $result = $rep->fetch(PDO::FETCH_LAZY);
+        echo $result;
+        print_r($result);
+        while ($row = $rep->fetch(PDO::FETCH_ASSOC))
+        {
+            echo $row['reponse'];
+        }
+    }
+*/
 }

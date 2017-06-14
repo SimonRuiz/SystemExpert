@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../Raspberry/Portfolio/.idea/Portfolio.iml" filepath="$PROJECT_DIR$/../../../Raspberry/Portfolio/.idea/Portfolio.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SystemExpert.iml" filepath="$PROJECT_DIR$/.idea/SystemExpert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Raspberry/mouseposition/.idea/mouseposition.iml" filepath="$PROJECT_DIR$/../../../Raspberry/mouseposition/.idea/mouseposition.iml" />
     </modules>
   </component>
 </project>
