@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Check conditions, If / else if / else to find the solution
+ * then add in a database the conditions and the answer found
+ */
 if($forme == 'cer'){
     $r = "Hénagone";
     KnowledgeBase::addToBase($nb_side,$conditions,$r);

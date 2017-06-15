@@ -1,6 +1,11 @@
 <?php
 class KnowledgeBase{
-
+    /**
+     * @param $nb_side
+     * @param $conditions
+     * @param $reponse
+     *
+     */
     public static function addToBase($nb_side, $conditions, $reponse){
         if(!empty($conditions)) {
             $strCdts = implode(",", $conditions);
@@ -21,6 +26,11 @@ class KnowledgeBase{
         }
     }
 
+    /**
+     * @param $nb_side
+     * @param $conditions
+     * @return mixed
+     */
     public static function checkKnowledgeBase($nb_side, $conditions){
         if(!empty($conditions)) {
             $strCdts = implode(",", $conditions);

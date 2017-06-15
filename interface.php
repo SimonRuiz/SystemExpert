@@ -2,7 +2,7 @@
 
     Nombre de côtés : entre 0 et 5 <input type="text" id="nb" name="nb" onkeyup="formulaire()"><br><br>
     <input type="text" id="nb_side" name="nb_side" style="display:none;">
-    <!--<select  name="" nchange="ta_super_fonction(this)">
+    <!--<select>
         <option value="tri">Triangle</option>
         <option value="qua">quadrilatere</option>
         <option value="pen">Pentagone</option>
@@ -130,7 +130,9 @@ function quadrilatere_Para() {
             document.getElementById('pentagone').style.display = 'none';
             document.getElementById('chercher').style.display = '';
         }
-
+        else{
+            document.getElementById('chercher').style.display = 'none';
+        }
         document.getElementById("nb").value = "";
     }
 

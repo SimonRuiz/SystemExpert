@@ -8,8 +8,6 @@
  * sinon renvoye une erreur NotFound
  */
 
-//faire un fichier xml / base de données
-include 'xml.php';
 
 include ("interface.php");
 ?>

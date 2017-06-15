@@ -1,0 +1,7 @@
+This application need a Apache server, a database (see file system_expert.sql)
+
+How the app work ?
+
+When you search a geometrical form with conditions, it will first check on the database
+if the database don't have such thing, it will check the rule base
+then when a solution is find, it will insert it on the database

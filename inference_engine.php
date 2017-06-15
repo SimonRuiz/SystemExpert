@@ -1,7 +1,10 @@
 <?php
 
 include_once 'connexion.php';
-
+/**
+ * Check what have been return by the form
+ * and set them into conditions to find something
+ */
 if(!empty($_POST)){
 
     $nb_side = $_POST['nb_side'];
